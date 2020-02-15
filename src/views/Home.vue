@@ -4,7 +4,7 @@
       <div class="container promo__content">
         <div class="promo__text">
           <h2 class="promo__h2">THE BRAND</h2>
-          <h3 class="promo__h3">OF LUXERIOUS <span>FASHION</span></h3>
+          <h3 class="promo__h3">OF LUXURIOUS <span>FASHION</span></h3>
         </div>
       </div>
     </section>
@@ -20,6 +20,7 @@
           v-for="product of PRODUCTS"
           :key="product.id"
           :product_data="product"
+          @addToCart="addToCart"
         />
       </div>
 
@@ -47,20 +48,24 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(["PRODUCTS"])
+    ...mapGetters(["PRODUCTS", "CART"])
   },
   methods: {
-    ...mapActions(["GET_PRODUCTS_FROM_API"])
+    ...mapActions(["GET_PRODUCTS_FROM_API", "ADD_TO_CART"]),
+    addToCart(data) {
+      this.ADD_TO_CART(data);
+    }
   },
   mounted() {
     this.GET_PRODUCTS_FROM_API().then(response => {
       this.$store.state.products = response;
-      if (response.data) {
-        console.log(this.PRODUCTS);
-      }
     });
   }
 };
 </script>
 
-<style lang="sass"></style>
+<style lang="sass">
+
+.promo__content
+  background-image: url("../assets/image/promo_back.jpg")
+</style>

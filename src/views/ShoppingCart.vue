@@ -1,7 +1,28 @@
 <template>
   <section class="shopping__cart">
     <div class="container">
-      <cart />
+      <table class="shopping__cart__table ">
+        <tbody>
+          <tr>
+            <th scope="col" class="first__th" colspan="2">Product Details</th>
+            <th scope="col" class="cart__th">unite Price</th>
+            <th scope="col" class="cart__th">Quantity</th>
+            <th scope="col" class="cart__th">shipping</th>
+            <th scope="col" class="cart__th">Subtotal</th>
+            <th scope="col" class="cart__th">ACTION</th>
+          </tr>
+          <cartItem
+            v-for="(item, index) of cart_data"
+            :key="item.id"
+            :cart_item_data="item"
+            @deleteFromCart="deleteFromCart(index)"
+          />
+        </tbody>
+      </table>
+      <div class="shopping__table__link">
+        <button class="clear__shopping__cart">CLEAR SHOPPING CART</button>
+        <button class="continue__shopping">CONTINUE SHOPPING</button>
+      </div>
     </div>
 
     <article class="checkout container">
@@ -9,33 +30,9 @@
         <h2 class="shipping__address__h2">Shipping Address</h2>
         <label for="select"></label>
         <select class="shipping__address__form__control" id="select">
-          <option value="AX">AALAND ISLANDS</option>
+          <option value="AX">ALAND ISLANDS</option>
           <option value="AM">ARMENIA</option>
           <option value="AW">ARUBA</option>
-          <option value="AU">AUSTRALIA</option>
-          <option value="AT">AUSTRIA</option>
-          <option value="AZ">AZERBAIJAN</option>
-          <option value="BS">BAHAMAS</option>
-          <option value="BH">BAHRAIN</option>
-          <option value="BD">BANGLADESH</option>
-          <option value="EG">EGYPT</option>
-          <option value="SV">EL SALVADOR</option>
-          <option value="GQ">EQUATORIAL GUINEA</option>
-          <option value="ER">ERITREA</option>
-          <option value="EE">ESTONIA</option>
-          <option value="ET">ETHIOPIA</option>
-          <option value="FO">FAROE ISLANDS</option>
-          <option value="GY">GUYANA</option>
-          <option value="HT">HAITI</option>
-          <option value="HM">HEARD AND MC DONALD ISLANDS</option>
-          <option value="HN">HONDURAS</option>
-          <option value="HK">HONG KONG</option>
-          <option value="HU">HUNGARY</option>
-          <option value="KE">KENYA</option>
-          <option value="PA">PANAMA</option>
-          <option value="PG">PAPUA NEW GUINEA</option>
-          <option value="PY">PARAGUAY</option>
-          <option value="RO">ROMANIA</option>
           <option selected value="RU">RUSSIAN FEDERATION</option>
         </select>
         <label>
@@ -81,18 +78,34 @@
 </template>
 
 <script>
-import cart from "../components/cart/cart";
+import cartItem from "../components/cart/cart-item";
+import { mapActions } from "vuex";
+
 export default {
   name: "shopping-cart",
   components: {
-    cart
+    cartItem
+    // cart
+  },
+  props: {
+    cart_data: {
+      type: Array,
+      default() {
+        return [];
+      }
+    }
+  },
+  methods: {
+    ...mapActions(["DELETE_FROM_CART"]),
+    deleteFromCart(index) {
+      this.DELETE_FROM_CART(index);
+    }
   }
 };
 </script>
 
 <style lang="sass">
-$widthSite: 1140px
-$colorSite: #f16d7f
+
 .shopping__cart
   margin-bottom: 80px
 

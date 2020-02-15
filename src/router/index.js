@@ -27,7 +27,8 @@ const routes = [
   {
     path: "/shopping-cart",
     name: "shopping-cart",
-    component: () => import("@/views/ShoppingCart")
+    component: () => import("@/views/ShoppingCart"),
+    props: true
   },
   {
     path: "/single-page",

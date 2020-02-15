@@ -21,13 +21,13 @@ export default {
   data() {
     return {
       links: [
-        {title: 'Home', url: '/', exact: true},
-        {title: 'Man', url: '/'},
-        {title: 'Women', url: '/'},
-        {title: 'Kids', url: '/'},
-        {title: 'Accessories', url: '/'},
-        {title: 'Featured', url: '/'},
-        {title: 'Hot Deals', url: '/'},
+        { title: "Home", url: "/", exact: true },
+        { title: "Man", url: "/" },
+        { title: "Women", url: "/" },
+        { title: "Kids", url: "/" },
+        { title: "Accessories", url: "/" },
+        { title: "Featured", url: "/" },
+        { title: "Hot Deals", url: "/" }
       ]
     };
   }

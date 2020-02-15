@@ -28,10 +28,8 @@
       </div>
 
       <div class="header__top__right">
-        <div class="cart-block">
-          <router-link to="/shopping-cart">
-            <img alt="basket" class="cart__icon" src="@/assets/image/cart.svg" />
-          </router-link>
+        <div class="cart">
+          <CartMin />
         </div>
         <a class="header__btn">My Account </a>
       </div>
@@ -40,12 +38,24 @@
 </template>
 
 <script>
+import CartMin from "../cart/cart-min";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "header-top",
+  components: {
+    CartMin
+  },
   data() {
-    return {
-      title: "header"
-    };
-  }
+    return {};
+  },
+  computed: {
+    ...mapGetters(["PRODUCTS", "CART"])
+  },
 };
 </script>
+
+<style lang="sass">
+.cart
+  display: flex
+  position: relative
+</style>

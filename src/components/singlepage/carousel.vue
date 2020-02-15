@@ -66,9 +66,6 @@ export default {
 </script>
 
 <style lang="sass">
-$widthSite: 1140px
-$colorSite: #f16d7f
-
 .carousel__inner
   max-width: 597px
   overflow: hidden

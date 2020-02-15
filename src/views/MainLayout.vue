@@ -6,7 +6,9 @@
     </header>
 
     <div class="app-page">
-      <router-view />
+      <keep-alive>
+        <router-view />
+      </keep-alive>
     </div>
 
     <footer class="footer">
@@ -18,12 +20,13 @@
 </template>
 
 <script>
-import HeaderTop from "../components/mainpage/Header-top"
+import HeaderTop from "../components/mainpage/Header-top";
 import HeaderNav from "../components/mainpage/Header-nav";
 
 import FooterTop from "../components/mainpage/Footer-top";
 import FooterCenter from "../components/mainpage/Footer-center";
 import FooterBottom from "../components/mainpage/Footer-bottom";
+import { mapGetters } from "vuex";
 export default {
   name: "main-layout",
   components: {

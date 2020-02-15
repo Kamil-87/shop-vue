@@ -13,9 +13,7 @@
       </h2>
       <p class="product__price">&#36;{{ product_data.price }}</p>
     </div>
-    <router-link tag="button" to="/checkout" type="button" class="product__add"
-      >Add to Cart</router-link
-    >
+    <button type="button" class="product__add" @click="addToCart">Add to Cart</button>
   </article>
 </template>
 
@@ -30,11 +28,20 @@ export default {
       }
     }
   },
-
+  methods: {
+    addToCart() {
+      this.$emit("addToCart", this.product_data);
+    }
+  }
 };
 </script>
 
 <style lang="sass">
 .product__add
+  background-color: transparent
+  border: none
   cursor: pointer
+  &:hover, &:active
+    border: none
+    background-color: transparent
 </style>
