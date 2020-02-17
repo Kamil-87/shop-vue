@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="drop__cart">
     <div class="cart-item">
       <div class="product-bio">
-      <!--  <img
+        <!--  <img
               :src="require('../../assets/image/productImages/' + cart_item_data.image)"
               alt="Some image"
               class="drop_cart_img"
@@ -48,28 +48,20 @@ export default {
         return {};
       }
     }
-  },
+  }
 };
 </script>
 
 <style lang="sass">
-.product-item
-  display: flex
-  flex-direction: column
-  width: 200px
-  border-radius: 5px
-  overflow: hidden
-  margin: 20px 0
-
-.product-bio
-  display: flex
-
 .cart-item
   display: flex
   justify-content: space-between
   border-color: grey
 
-.cart-item img
+.product-bio
+  display: flex
+
+.product-bio img
   align-self: flex-start
   margin-right: 15px
   height: 100px

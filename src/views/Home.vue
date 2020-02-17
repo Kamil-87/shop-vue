@@ -50,15 +50,10 @@ export default {
     ...mapGetters(["PRODUCTS"])
   },
   methods: {
-    ...mapActions(["GET_PRODUCTS_FROM_API"]),
-    addToCart(data) {
-      this.ADD_TO_CART(data);
-    }
+    ...mapActions(["GET_PRODUCTS_FROM_API"])
   },
   mounted() {
-    this.GET_PRODUCTS_FROM_API().then(response => {
-      this.$store.state.products = response;
-    });
+    this.GET_PRODUCTS_FROM_API()
   }
 };
 </script>

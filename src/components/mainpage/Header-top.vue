@@ -28,8 +28,10 @@
       </div>
 
       <div class="header__top__right">
-        <div class="cart">
-          <CartItemMin />
+        <button @click="showDropCart=!showDropCart"><img src="../../assets/image/cart.svg" alt="Корзина"></button>
+        <div class="cart-block">
+          <p v-if="!cartItems.length">Корзина пуста</p>
+          <CartItemMin v-show="showDropCart" />
         </div>
         <a class="header__btn">My Account </a>
       </div>
@@ -45,14 +47,17 @@ export default {
     CartItemMin
   },
   data() {
-    return {};
+    return {
+      cartItems: [],
+      showDropCart: true
+    };
   },
 
 };
 </script>
 
 <style lang="sass">
-.cart
+.cart-block
   display: flex
   position: relative
 </style>
