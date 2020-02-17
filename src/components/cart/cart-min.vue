@@ -3,23 +3,19 @@
     <div
       @click="showCart = !showCart"
       class="btn-cart"
-      :to="{ name: 'shopping-cart', params: { cart_data: CART } }"
+      :to="{ name: 'shopping-cart' }"
     >
       <img
         alt="basket"
         class="cart__icon"
         src="@/assets/image/cart.svg"
-        :cart_data="CART"
       />
     </div>
 
     <div class="cart-block" v-show="showCart">
       <p v-if="!cart_data.length">Корзина пуста</p>
       <cartItemMin
-        v-for="(item, index) of cart_data"
-        :key="item.id"
-        :cart_item_data="item"
-        @deleteFromCart="deleteFromCart(index)"
+
       />
     </div>
   </div>
@@ -47,18 +43,7 @@ export default {
       showCart: false
     };
   },
-  computed: {
-    ...mapGetters(["CART"])
-  },
-  methods: {
-    ...mapActions(["ADD_TO_CART", "DELETE_FROM_CART"]),
-    addToCart(data) {
-      this.ADD_TO_CART(data);
-    },
-    deleteFromCart(index) {
-      this.DELETE_FROM_CART(index);
-    }
-  }
+
 };
 </script>
 

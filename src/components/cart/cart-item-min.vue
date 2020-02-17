@@ -2,11 +2,11 @@
   <div>
     <div class="cart-item">
       <div class="product-bio">
-        <img
-          :src="require('../../assets/image/productImages/' + cart_item_data.image)"
-          alt="Some image"
-          class="drop_cart_img"
-        />
+      <!--  <img
+              :src="require('../../assets/image/productImages/' + cart_item_data.image)"
+              alt="Some image"
+              class="drop_cart_img"
+      />-->
         <div class="product-desc">
           <h4 class="drop__cart_h4">{{ cart_item_data.title }}</h4>
           <p class="drop__cart_evaluation">☆☆☆☆☆</p>
@@ -49,14 +49,6 @@ export default {
       }
     }
   },
-  mounted() {
-    this.$set(this.cart_item_data, "quantity", 1);
-  },
-  methods: {
-    deleteFromCart() {
-      this.$emit("deleteFromCart");
-    }
-  }
 };
 </script>
 

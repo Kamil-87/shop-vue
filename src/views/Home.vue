@@ -20,7 +20,6 @@
           v-for="product of PRODUCTS"
           :key="product.id"
           :product_data="product"
-          @addToCart="addToCart"
         />
       </div>
 
@@ -48,10 +47,10 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(["PRODUCTS", "CART"])
+    ...mapGetters(["PRODUCTS"])
   },
   methods: {
-    ...mapActions(["GET_PRODUCTS_FROM_API", "ADD_TO_CART"]),
+    ...mapActions(["GET_PRODUCTS_FROM_API"]),
     addToCart(data) {
       this.ADD_TO_CART(data);
     }

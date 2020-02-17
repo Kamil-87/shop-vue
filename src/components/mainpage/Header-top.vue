@@ -29,7 +29,7 @@
 
       <div class="header__top__right">
         <div class="cart">
-          <CartMin />
+          <CartItemMin />
         </div>
         <a class="header__btn">My Account </a>
       </div>
@@ -38,19 +38,16 @@
 </template>
 
 <script>
-import CartMin from "../cart/cart-min";
-import { mapActions, mapGetters } from "vuex";
+import CartItemMin from "../cart/cart-item-min";
 export default {
   name: "header-top",
   components: {
-    CartMin
+    CartItemMin
   },
   data() {
     return {};
   },
-  computed: {
-    ...mapGetters(["PRODUCTS", "CART"])
-  },
+
 };
 </script>
 
