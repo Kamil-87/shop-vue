@@ -18,16 +18,16 @@
     <td class="cart__td">
       <label>
         <input
+          v-model.number.trim="cart_item_data.quantity"
           type="number"
           min="1"
           max="1000"
-          value="2"
           class="quantity__product"
-        />{{ cart_item_data.quantity }}
+        />
       </label>
     </td>
     <td class="cart__td">FREE</td>
-    <td class="cart__td">&#36;300</td>
+    <td class="cart__td">&#36;{{ subTotalProductPrice }}</td>
     <td class="cart__td">
       <button @click="deleteFromCart" class="action__product">
         <i class="fas fa-times-circle"></i>
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "cart-item",
   props: {
@@ -47,10 +48,17 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters(["subTotalProduct"]),
+    subTotalProductPrice() {
+      return this.cart_item_data.price * this.cart_item_data.quantity;
+    }
+  },
   mounted() {
     this.$set(this.cart_item_data, "quantity", 1);
   },
   methods: {
+    ...mapActions(["DELETE_FROM_CART"]),
     deleteFromCart() {
       this.$emit("deleteFromCart");
     }

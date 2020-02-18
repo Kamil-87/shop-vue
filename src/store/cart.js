@@ -1,13 +1,15 @@
 export default {
   state: {
-    cart: []
+    cart: [],
+    subTotalProductPrice: null,
+    grandTotalProductPrice: null
   },
 
   mutations: {
     SET_CART: (state, product) => {
       let isProductExists = false;
       if (state.cart.length) {
-        state.cart.map(function(item) {
+        state.cart.map(function (item) {
           if (item.id === product.id) {
             isProductExists = true;
             item.quantity++;
@@ -20,17 +22,17 @@ export default {
         state.cart.push(product);
       }
     },
-    REMOVE_FROM_CART: (state, index) => {
+    DELETE_FROM_CART: (state, index) => {
       state.cart.splice(index, 1);
     }
   },
 
   actions: {
-    ADD_TO_CART({ commit }, product) {
+    ADD_PRODUCT_TO_CART({ commit }, product) {
       commit("SET_CART", product);
     },
     DELETE_FROM_CART({ commit }, index) {
-      commit("REMOVE_FROM_CART", index);
+      commit("DELETE_FROM_CART", index);
     }
   },
 
@@ -39,4 +41,4 @@ export default {
       return state.cart;
     }
   }
-}
+};

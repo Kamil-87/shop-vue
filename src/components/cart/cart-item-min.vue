@@ -1,12 +1,14 @@
 <template>
-  <div class="drop__cart">
+  <div>
     <div class="cart-item">
       <div class="product-bio">
-        <!--  <img
-              :src="require('../../assets/image/productImages/' + cart_item_data.image)"
-              alt="Some image"
-              class="drop_cart_img"
-      />-->
+        <img
+          :src="
+            require('../../assets/image/productImages/' + cart_item_data.image)
+          "
+          alt="Some image"
+          class="drop_cart_img"
+        />
         <div class="product-desc">
           <h4 class="drop__cart_h4">{{ cart_item_data.title }}</h4>
           <p class="drop__cart_evaluation">☆☆☆☆☆</p>
@@ -19,22 +21,13 @@
       <div class="right-block">
         <button
           class="action__product"
-          @click="$emit('remove', cart_item_data)"
+          @click="deleteFromCart"
         >
           <i class="fas fa-times-circle"></i>
         </button>
       </div>
     </div>
-    <div class="cart__total__cost">
-      <p>TOTAL</p>
-      <p>${{ cart_item_data.quantity * cart_item_data.price }}</p>
-    </div>
-    <router-link tag="a" to="/checkout" class="btn__drop__cart cart_red">
-      Checkout
-    </router-link>
-    <router-link tag="a" to="/single_page" class="btn__drop__cart cart_black">
-      Go to cart
-    </router-link>
+
   </div>
 </template>
 
@@ -48,6 +41,14 @@ export default {
         return {};
       }
     }
+  },
+  methods: {
+    deleteFromCart() {
+      this.$emit("deleteFromCart");
+    }
+  },
+  mounted() {
+    this.$set(this.cart_item_data, "quantity", 1)
   }
 };
 </script>
@@ -56,7 +57,10 @@ export default {
 .cart-item
   display: flex
   justify-content: space-between
-  border-color: grey
+  border-bottom: 1px solid #eaeaea
+  margin-bottom: 10px
+  width: 262px
+  padding: 20px 0
 
 .product-bio
   display: flex
@@ -101,27 +105,6 @@ export default {
   border-radius: 5px
 
 .drop__cart
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.62)
-  border-radius: 5px
-  box-sizing: border-box
-  right: 0
-  top: 130%
-  position: absolute
-  background-color: white
-  padding: 20px
-  color: black
-  width: 262px
-  &:before
-    content: ''
-    width: 0
-    height: 0
-    position: absolute
-    top: -10px
-    right: 35px
-    border-left: 10px solid transparent
-    border-right: 10px solid transparent
-    border-bottom: 10px solid white
-
   &_img
     margin-right: 15px
     border-bottom: 1px solid #eaeaea
@@ -137,8 +120,8 @@ export default {
     font-size: 16px
     font-weight: 400
     text-transform: uppercase
-    &:before
-    content: "\2605"
+    /*&:before*/
+    /*content: "\2605"*/
   &_cost
     font-size: 12px
     font-weight: 400
@@ -148,34 +131,5 @@ export default {
       font-size: 10px
 
 
-.cart__total__cost
-  display: flex
-  justify-content: space-between
-  color: #222222
-  font-size: 16px
-  font-weight: 700
-  text-transform: uppercase
-  margin-top: 19px
-  margin-bottom: 32px
 
-
-.btn__drop__cart
-  font-size: 14px
-  font-weight: 700
-  text-transform: uppercase
-  display: block
-  text-align: center
-  height: 50px
-  line-height: 50px
-
-
-.cart_red
-  border: 1px solid $colorSite
-  color: $colorSite
-  margin-bottom: 11px
-
-
-.cart_black
-  border: 1px solid #eaeaea
-  color: #4a4a4a
 </style>

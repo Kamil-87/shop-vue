@@ -26,7 +26,6 @@ import HeaderNav from "../components/mainpage/Header-nav";
 import FooterTop from "../components/mainpage/Footer-top";
 import FooterCenter from "../components/mainpage/Footer-center";
 import FooterBottom from "../components/mainpage/Footer-bottom";
-import { mapGetters } from "vuex";
 export default {
   name: "main-layout",
   components: {

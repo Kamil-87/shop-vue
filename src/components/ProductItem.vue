@@ -13,7 +13,7 @@
       </h2>
       <p class="product__price">&#36;{{ product_data.price }}</p>
     </div>
-    <button type="button" class="product__add" @click="addToCart">Add to Cart</button>
+    <button type="button" class="product__add" @click="addProductToCart">Add to Cart</button>
   </article>
 </template>
 
@@ -29,8 +29,8 @@ export default {
     }
   },
   methods: {
-    addToCart() {
-      this.$emit("addToCart", this.product_data);
+    addProductToCart() {
+      this.$emit("addProductToCart", this.product_data);
     }
   }
 };

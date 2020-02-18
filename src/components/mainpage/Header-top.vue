@@ -28,11 +28,7 @@
       </div>
 
       <div class="header__top__right">
-        <button @click="showDropCart=!showDropCart"><img src="../../assets/image/cart.svg" alt="Корзина"></button>
-        <div class="cart-block">
-          <p v-if="!cartItems.length">Корзина пуста</p>
-          <CartItemMin v-show="showDropCart" />
-        </div>
+        <CartMin :cart_data="CART" />
         <a class="header__btn">My Account </a>
       </div>
     </div>
@@ -40,24 +36,24 @@
 </template>
 
 <script>
-import CartItemMin from "../cart/cart-item-min";
+import { mapGetters } from "vuex";
+import CartMin from "../cart/cart-min";
 export default {
   name: "header-top",
   components: {
-    CartItemMin
+    CartMin
   },
   data() {
     return {
-      cartItems: [],
       showDropCart: true
     };
   },
-
+  computed: {
+    ...mapGetters(["CART"])
+  }
 };
 </script>
 
 <style lang="sass">
-.cart-block
-  display: flex
-  position: relative
+
 </style>

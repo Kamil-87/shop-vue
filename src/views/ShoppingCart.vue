@@ -12,7 +12,7 @@
             <th scope="col" class="cart__th">ACTION</th>
           </tr>
           <cartItem
-            v-for="(item, index) of cart_data"
+            v-for="(item, index) of CART"
             :key="item.id"
             :cart_item_data="item"
             @deleteFromCart="deleteFromCart(index)"
@@ -79,13 +79,12 @@
 
 <script>
 import cartItem from "../components/cart/cart-item";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "shopping-cart",
   components: {
     cartItem
-    // cart
   },
   props: {
     cart_data: {
@@ -100,6 +99,9 @@ export default {
     deleteFromCart(index) {
       this.DELETE_FROM_CART(index);
     }
+  },
+  computed: {
+    ...mapGetters(["CART"]),
   }
 };
 </script>
