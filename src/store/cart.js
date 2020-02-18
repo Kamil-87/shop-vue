@@ -1,8 +1,6 @@
 export default {
   state: {
     cart: [],
-    subTotalProductPrice: null,
-    grandTotalProductPrice: null
   },
 
   mutations: {
@@ -24,7 +22,8 @@ export default {
     },
     DELETE_FROM_CART: (state, index) => {
       state.cart.splice(index, 1);
-    }
+    },
+
   },
 
   actions: {
