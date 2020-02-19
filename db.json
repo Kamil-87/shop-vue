@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": 101,
+      "title": "T-shirt",
+      "price": 52,
+      "image": "product-img1.jpg",
+      "category": "Man"
+    },
+    {
+      "id": 102,
+      "title": "Jacket",
+      "price": 62,
+      "image": "product-img2.jpg",
+      "category": "Women"
+    },
+    {
+      "id": 103,
+      "title": "Mango People T-shirt",
+      "price": 32,
+      "image": "product-img3.jpg",
+      "category": "Man"
+    },
+    {
+      "id": 104,
+      "title": "Dress",
+      "price": 22,
+      "image": "product-img4.jpg",
+      "category": "Women"
+    },
+    {
+      "id": 105,
+      "title": "Mango People T-shirt",
+      "price": 55,
+      "image": "product-img5.jpg",
+      "category": "Women"
+    },
+    {
+      "id": 106,
+      "title": "Mango People T-shirt",
+      "price": 72,
+      "image": "product-img6.jpg",
+      "category": "Man"
+    },
+    {
+      "id": 107,
+      "title": "Mango People T-shirt",
+      "price": 82,
+      "image": "product-img7.jpg",
+      "category": "Man"
+    },
+    {
+      "id": 108,
+      "title": "Mango People T-shirt",
+      "price": 92,
+      "image": "product-img8.jpg",
+      "category": "Man"
+    }
+  ],
+  "menuInformation": [
+    {"title": "Terms & Condition", "url": "/"},
+    {"title": "How to Buy", "url": "/"},
+    {"title": "Privacy Policy", "url": "/"},
+    {"title": "How to Sell", "url": "/"},
+    {"title": "Promotion", "url": "/"}
+  ],
+  "menuShopCategory": [
+    {"title": "Men", "url": "/"},
+    {"title": "Women", "url": "/"},
+    {"title": "Child", "url": "/"},
+    {"title": "Apparel", "url": "/"},
+    {"title": "Brows All", "url": "/"}
+  ]
+}
