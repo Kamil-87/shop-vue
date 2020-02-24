@@ -23,9 +23,8 @@
           @addProductToCart="addProductToCart"
         />
       </div>
-
       <div class="products__bottom">
-        <router-link tag="a" to="/catalog" class="products__button"
+        <router-link to="/catalog" class="products__button"
           >Browse All Product
           <i class="fas fa-long-arrow-alt-right products__button__arrow"></i>
         </router-link>
@@ -58,7 +57,6 @@ export default {
   },
   mounted() {
     this.GET_PRODUCTS_FROM_API();
-
   }
 };
 </script>

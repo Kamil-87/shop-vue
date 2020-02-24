@@ -27,27 +27,27 @@
       <AsideMenu />
 
       <div class="content">
-        <CatalogParameters />
+<!--        <CatalogParameters />-->
         <CatalogProducts />
       </div>
     </div>
 
-    <FeatureBox />
+<!--    <FeatureBox />-->
   </div>
 </template>
 
 <script>
 import AsideMenu from "../components/catalog/aside-menu";
-import CatalogParameters from "../components/catalog/catalog-parameters";
+// import CatalogParameters from "../components/catalog/catalog-parameters";
 import CatalogProducts from "../components/catalog/catalog-products";
-import FeatureBox from "../components/catalog/feature-box";
+// import FeatureBox from "../components/catalog/feature-box";
 export default {
   name: "catalog",
   components: {
     AsideMenu,
-    CatalogParameters,
-    CatalogProducts,
-    FeatureBox
+    CatalogProducts
+    // CatalogParameters,
+    // FeatureBox
   }
 };
 </script>
